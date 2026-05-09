@@ -1,0 +1,39 @@
+// Interface
+public interface IQuittable
+{
+    void Quit();
+}
+
+// Employee class implementing interface
+public class Employee : IQuittable
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+    // Quit method
+    public void Quit()
+    {
+        Console.WriteLine(FirstName + " " + LastName + " has quit the company.");
+    }
+}
+
+// Main program
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating Employee object
+        Employee employee = new Employee();
+
+        employee.FirstName = "John";
+        employee.LastName = "Smith";
+
+        // Using polymorphism
+        IQuittable quittable = employee;
+
+        // Calling Quit method
+        quittable.Quit();
+
+        Console.ReadLine();
+    }
+}
